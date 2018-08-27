@@ -18,12 +18,9 @@
   },
   "homepage": "http://chingyawhao.github.io/material-ui-pickers",
   "main": "dist/index.js",
-  "files": [
-    "src"
-  ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --rootDir src --declaration true --outDir dist",
+    "build": "tsc",
     "start:dev": "NODE_ENV=development webpack-dev-server --content-base app --history-api-fallback",
     "compile": "NODE_ENV=production webpack --display-error-details",
     "test": "echo \"Error: no test specified\" && exit 1",
