@@ -27,7 +27,7 @@
     "start:dev": "NODE_ENV=development webpack-dev-server --content-base app --history-api-fallback",
     "compile": "NODE_ENV=production webpack --display-error-details",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "postinstall-build dist \"npm run build\""
+    "postinstall": "npm run build"
   },
   "author": {
     "name": "Ching Yaw Hao",
@@ -52,7 +52,6 @@
     "ts-loader": "^4.3.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4",
-    "postinstall-build": "^5.0.1"
+    "webpack-dev-server": "^3.1.4"
   }
 }
