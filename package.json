@@ -23,7 +23,8 @@
     "module": "tsc --rootDir src --declaration true --outDir dist",
     "start:dev": "NODE_ENV=development webpack-dev-server --content-base app --history-api-fallback",
     "compile": "NODE_ENV=production webpack --display-error-details",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "postinstall-build dist \"npm run module\""
   },
   "author": {
     "name": "Ching Yaw Hao",
@@ -48,6 +49,7 @@
     "ts-loader": "^4.3.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "postinstall-build": "^5.0.1"
   }
 }
