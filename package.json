@@ -19,6 +19,12 @@
   "homepage": "http://chingyawhao.github.io/material-ui-pickers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "README.md",
+    "package.json",
+    "src",
+    "tsconfig.json"
+  ],
   "scripts": {
     "build": "tsc",
     "start:dev": "webpack-dev-server --content-base app --history-api-fallback",
