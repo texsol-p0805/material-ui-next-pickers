@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import {MuiThemeProvider, createMuiTheme, withStyles, StyledComponentProps, Theme} from '@material-ui/core/styles'
@@ -42,7 +43,7 @@ class DemoPage extends React.Component<DemoPageProps, DemoPageState> {
     const {date, min, max, time} = this.state
     return (
       <div className={classes.container}>
-        <DateFormatInput name='date-input' value={date} onChange={this.onChangeDate} min={min} max={max} label='Date' okToConfirm/>
+        <DateFormatInput name='date-input' value={date} onChange={this.onChangeDate} min={min} max={max} label='Date' okToConfirm activeClear/>
         <TimeFormatInput name='time-input' value={time} onChange={this.onChangeTime} label='Time' selectableMinutesInterval={5} dialog okToConfirm/>
       </div>
     )

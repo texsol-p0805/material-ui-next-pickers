@@ -11,6 +11,7 @@ import InputLabel, {InputLabelProps} from '@material-ui/core/InputLabel'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import IconButton from '@material-ui/core/IconButton'
 import Today from '@material-ui/icons/Today'
+import Clear from '@material-ui/icons/Clear';
 
 import * as DateUtil from './date'
 import Calendar, {CalendarProps} from './calendar'
@@ -74,9 +75,18 @@ class DateFormatInput extends React.Component<DateFormatInputProps, DateFormatIn
   onFocus = (focus:boolean) => {
     this.setState({focus})
   }
-  toggleShowCalendar = () => {
-    const {calendarShow} = this.state
-    this.setState({calendarShow:!calendarShow})
+  toggleShowCalendar = (event) => {
+    console.log(event)
+    let {name, onChange} = this.props
+    if (event.target.id  === `${name}Clear` ||
+      event.target.parentElement.id === `${name}Clear` ||
+      event.target.parentElement.parentElement.id === `${name}Clear` || 
+      event.target.parentElement.parentElement.parentElement.parentElement.id === `${name}Clear`) {
+      onChange(undefined)
+    } else {
+      const {calendarShow} = this.state
+      this.setState({calendarShow:!calendarShow})
+    }
   }
   closeCalendar = () => {
     this.setState({calendarShow:false})
@@ -92,7 +102,7 @@ class DateFormatInput extends React.Component<DateFormatInputProps, DateFormatIn
     }
   }
   render() {
-    const {name, label, value, onChange, anchorOrigin, transformOrigin, disabled, error, fullWidth, min, max, dialog, okToConfirm, endIcon, className, InputLabelProps, InputProps, FormHelperTextProps, CalendarProps, classes} = this.props
+    const {name, label, value, onChange, anchorOrigin, transformOrigin, disabled, error, fullWidth, min, max, dialog, okToConfirm, endIcon, className, InputLabelProps, InputProps, FormHelperTextProps, CalendarProps, classes, activeClear} = this.props
     const {focus, calendarShow} = this.state
     return ([
       <div key='date-input' className={className} ref={input => this.input = input}>
@@ -106,9 +116,15 @@ class DateFormatInput extends React.Component<DateFormatInputProps, DateFormatIn
             onBlur={() => this.onFocus(false)}
             inputComponent={({value}) => <div className={classes.input}>{value}</div>}
             endAdornment={<InputAdornment position='end'>
-              <IconButton onMouseDown={event => event.preventDefault()}>
-                {endIcon? endIcon:<Today/>}
-              </IconButton>
+              {activeClear? 
+                <IconButton id={`${name}Clear`} onMouseDown={event => event.preventDefault()}>
+                  {<Clear/>}
+                </IconButton>
+                :
+                <IconButton onMouseDown={event => event.preventDefault()}>
+                  {endIcon? endIcon:<Today/>}
+                </IconButton>
+              }
             </InputAdornment>}
             {...InputProps}
           />
@@ -166,6 +182,7 @@ export interface DateFormatInputProps extends React.Props<{}>, StyledComponentPr
   InputProps?: InputProps
   FormHelperTextProps?: FormHelperTextProps
   CalendarProps?: CalendarProps
+  activeClear?: boolean
 }
 export interface DateFormatInputState {
   focus: boolean
