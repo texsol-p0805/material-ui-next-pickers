@@ -24,7 +24,7 @@
     "start:dev": "webpack-dev-server --content-base app --history-api-fallback",
     "compile": "webpack --display-error-details",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "tsc --version"
+    "postinstall": "tsc"
   },
   "author": {
     "name": "Ching Yaw Hao",
@@ -40,7 +40,7 @@
     "react-dom": "^16.2.0",
     "react-swipeable-views": "^0.12.13",
     "react-swipeable-views-utils": "^0.12.13",
-    "typescript": "^2.7.2"
+    "typescript": "2.7.2"
   },
   "devDependencies": {
     "@types/react": "^16.3.14",
