@@ -18,7 +18,6 @@ import Calendar, {CalendarProps} from './calendar'
 
 const styles = (theme:Theme):StyleRules => ({
   label: {
-    maxWidth: '100%',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis'
