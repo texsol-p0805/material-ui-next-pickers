@@ -29,7 +29,7 @@ const styles = (theme:Theme):StyleRules => ({
   input: {
     width: '180px',
     maxWidth: '100%',
-    height: '19px',
+    height: 'auto',
     padding: '6px 0 7px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
