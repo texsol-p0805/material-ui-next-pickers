@@ -117,9 +117,13 @@ class DateFormatInput extends React.Component<DateFormatInputProps, DateFormatIn
             inputComponent={({value}) => <div className={classes.input}>{value}</div>}
             endAdornment={<InputAdornment position='end'>
               {activeClear? 
-                <IconButton id={`${name}Clear`} onMouseDown={event => event.preventDefault()}>
-                  {<Clear/>}
-                </IconButton>
+                value?
+                  <IconButton id={`${name}Clear`} onMouseDown={event => event.preventDefault()}>
+                    {<Clear/>}
+                  </IconButton>
+                  :
+                  <IconButton disabled={true}>
+                  </IconButton>
                 :
                 <IconButton onMouseDown={event => event.preventDefault()}>
                   {endIcon? endIcon:<Today/>}
